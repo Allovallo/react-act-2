@@ -3,7 +3,10 @@ import { FaMapMarkerAlt, FaUserAlt, FaCalendarAlt, FaClock } from "react-icons/f
 import { iconSize } from 'components/constants';
 import { formatEventStart, formatEventDuration } from 'utils';
 
-import css from './Event.module.css'
+import { Card } from './Event.styled';
+import { EventName } from './Event.styled';
+
+import css from './Event.module.css';
 
 export const Event = ({ name, location, speaker, type, start, end }) => {
     const formattedStart = formatEventStart(start);
@@ -13,8 +16,8 @@ export const Event = ({ name, location, speaker, type, start, end }) => {
     console.log(css[type]);
 
     return (
-        <div className={css.event}>
-            <h2 className={css.title}>{name}</h2>
+        <Card>
+            <EventName>{name}</EventName>
             <p className={css.info}>
                 <FaMapMarkerAlt className={css.icon} size={iconSize.md} />
                 {location}
@@ -32,7 +35,7 @@ export const Event = ({ name, location, speaker, type, start, end }) => {
                 {duration}
             </p>
             <span className={`${css.chip} ${css[type]}`}>{type}</span>
-        </div>
+        </Card>
     );
 };
 
