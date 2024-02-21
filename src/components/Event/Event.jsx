@@ -5,8 +5,6 @@ import { formatEventStart, formatEventDuration } from 'utils';
 
 import { Card, EventName, Info, Chip } from './Event.styled';
 
-import css from './Event.module.css';
-
 export const Event = ({ name, location, speaker, type, start, end }) => {
     const formattedStart = formatEventStart(start);
     const duration = formatEventDuration(start, end)
@@ -15,19 +13,19 @@ export const Event = ({ name, location, speaker, type, start, end }) => {
         <Card>
             <EventName>{name}</EventName>
             <Info>
-                <FaMapMarkerAlt className={css.icon} size={iconSize.md} />
+                <FaMapMarkerAlt size={iconSize.md} />
                 {location}
             </Info>
             <Info>
-                <FaUserAlt className={css.icon} size={iconSize.md} />
+                <FaUserAlt size={iconSize.md} />
                 {speaker}
             </Info>
             <Info>
-                <FaCalendarAlt className={css.icon} size={iconSize.md} />
+                <FaCalendarAlt size={iconSize.md} />
                 {formattedStart}
             </Info>
             <Info>
-                <FaClock className={css.icon} size={iconSize.md} />
+                <FaClock size={iconSize.md} />
                 {duration}
             </Info>
             <Chip eventType={type}>{type}</Chip>
